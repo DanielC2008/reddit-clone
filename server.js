@@ -6,8 +6,13 @@ const router = require('./routes/index.js')
 const bodyParser = require('body-parser')
 
 
+app.set('view engine', 'pug')
+
+
 
 ///////******MIDDLEWARES********\\\\\\\\
+app.use(express.static('public'))
+
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
