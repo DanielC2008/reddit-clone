@@ -8,14 +8,14 @@ const router = Router()
 //////////////*********ROUTES************\\\\\\\\\\\\\\\\
 /////////*******this retrieves the home page*********\\\\\\\\\\
 router.get('/', (req, res) => {
-	console.log(req);
-	res.send("hello")
+	// console.log(req);
+	res.render('index')
 })
 
 
 /////////**********this retrieves the new page*******\\\\\\\
 router.get('/new', (req, res)=> {
-	res.send("this is the new page")
+	// res.send("this is the new page")
 })
 
 
