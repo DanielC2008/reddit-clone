@@ -8,6 +8,7 @@ const router = Router()
 //////////////*********ROUTES************\\\\\\\\\\\\\\\\
 /////////*******this retrieves the home page*********\\\\\\\\\\
 router.get('/', (req, res) => {
+	console.log(req);
 	res.send("hello")
 })
 
