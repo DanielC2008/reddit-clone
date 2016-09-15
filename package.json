@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/DanielC2008/reddit-clone/issues"
   },
-  "homepage": "https://github.com/DanielC2008/reddit-clone#readme"
+  "homepage": "https://github.com/DanielC2008/reddit-clone#readme",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "pug": "^2.0.0-beta6"
+  }
 }
