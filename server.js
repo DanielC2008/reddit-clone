@@ -2,12 +2,31 @@
 
 const express = require('express')
 const app = express()
+const router = require('./routes/index.js')
 
 
 
 
 
-app.get('/', (req, res) => res.send("hello jerk"))
+
+///////******MIDDLEWARES********\\\\\\\\
+
+
+
+//////********ROUTES********\\\\\\\
+app.use(router)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 app.listen('3008', ()=> {
