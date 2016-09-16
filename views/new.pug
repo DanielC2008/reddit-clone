@@ -2,4 +2,20 @@ extends layout.pug
 
 block content
 
-	h1 this is the new page
+	.order-form
+		form(method="POST")
+			.form-group
+				label(for='name') Name
+				input.form-control#name(type='text',name = "name", placeholder='John Doe' required)
+			.form-group
+				label(for='email') Email Address
+				input.form-control#email(type='email',name = 'email', placeholder='you@example.com' required)
+			.form-group
+				label(for='image') image
+				input.form-control#image(type='text', name = 'image' placeholder='imageURL')
+			
+			.order-form__submit
+				a.btn.btn-danger.btn-lg(href="/order") Cancel
+				input.btn.btn-success.btn-lg(type='submit' value='Submit')
+
+
