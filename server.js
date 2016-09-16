@@ -4,10 +4,9 @@ const express = require('express')
 const app = express()
 const router = require('./routes/index.js')
 const bodyParser = require('body-parser')
-
+const { connect } = require('./db/database.js')
 
 app.set('view engine', 'pug')
-
 
 
 ///////******MIDDLEWARES********\\\\\\\\
@@ -38,19 +37,12 @@ app.use((err, req, res, next) => {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen('3008', ()=> {
-	console.log("listening on port 3008")
+console.log('hello')
+connect()
+	.then(() => {
+		app.listen('3008', ()=> {
+			console.log("listening on port 3008")
+		})
 })
+.catch(console.error)
+
