@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 
 /////////**********this retrieves the new page*******\\\\\\\
 router.get('/new', (req, res)=> {
+	res.render('new')
 	// res.send("this is the new page")
 })
 
