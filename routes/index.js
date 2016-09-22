@@ -33,5 +33,13 @@ router.post('/new', (req, res, err) =>{
 		.catch(err)
 })
 
+router.get('/login', (req, res, err) => {
+	res.render('login')
+})
+
+router.get('/register', (req, res, err) => {
+	res.render('register')
+})
+
 
 module.exports = router
