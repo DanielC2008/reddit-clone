@@ -2,8 +2,8 @@
 
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('new', {
+module.exports = mongoose.model('New', {
 	title: String,
-	img: String,
-	link: String
+	link: String,
+	image: String
 })
