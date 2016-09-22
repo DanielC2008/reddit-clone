@@ -33,7 +33,8 @@ app.use((err, req, res, next) => {
 	res.sendStatus(err.status || 500)
 	// error message replicating http server
 	console.error(`[${new Date()}] "${req.method} ${req.url}" Error(${res.statusCode}) ${res.statusMessage}`);
-	res.render('error', {error: err})
+	// res.render('error', {error: err})
+	console.log(err.stack)
 })
 
 
