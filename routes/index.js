@@ -3,13 +3,17 @@
 
 const {Router} = require('express')
 const router = Router()
-const NewSubmit = require('../models/new.js')
+const News = require('../models/new.js')
 
 //////////////*********ROUTES************\\\\\\\\\\\\\\\\
 /////////*******this retrieves the home page*********\\\\\\\\\\
 router.get('/', (req, res) => {
-	res.render('index')
-})
+	News
+		.find()
+		.then((news) => {
+				res.render('index', {news})
+			})
+		})
 
 
 /////////**********this retrieves the new page*******\\\\\\\
@@ -21,7 +25,7 @@ router.get('/new', (req, res)=> {
 
 ////////********this posts to db**********\\\\\\\\
 router.post('/new', (req, res, err) =>{
-	NewSubmit
+	News
 		.create(req.body)
 		.then(()=>{
 			res.redirect('/')

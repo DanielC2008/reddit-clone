@@ -5,13 +5,13 @@ block content
 	.order-form
 		form(method="POST")
 			.form-group
-				label(for='name') Name
-				input.form-control#name(type='text',name = "name", placeholder='John Doe' required)
+				label(for='title') Title
+				input.form-control#name(type='text',name = "title", placeholder='John Doe' required)
 			.form-group
-				label(for='email') Email Address
-				input.form-control#email(type='email',name = 'email', placeholder='you@example.com' required)
+				label(for='link') Link
+				input.form-control#link(type='link',name = 'link', placeholder='http://blah' required)
 			.form-group
-				label(for='image') image
+				label(for='image') Image
 				input.form-control#image(type='text', name = 'image' placeholder='imageURL')
 			
 			.order-form__submit
