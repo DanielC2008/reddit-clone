@@ -3,8 +3,13 @@
 const express = require('express')
 const app = express()
 const router = require('./routes/index.js')
+//body obj put on req
 const bodyParser = require('body-parser')
 const { connect } = require('./db/database.js')
+//session obj put on req
+const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
+
 
 app.set('view engine', 'pug')
 
@@ -16,6 +21,17 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
+app.use(session({
+  store: new RedisStore({
+  	url: process.env.REDIS_URL || "redis://localhost:6379"
+  }),
+  secret: 'automaticbarnacle'
+}))
+
+app.use((req, res, next) =>{
+	app.locals.user = req.session && req.session.sessionUser
+	next()
+})
 
 //////********ROUTES********\\\\\\\
 app.use(router)
@@ -38,7 +54,6 @@ app.use((err, req, res, next) => {
 })
 
 
-console.log('hello')
 connect()
 	.then(() => {
 		app.listen('3008', ()=> {

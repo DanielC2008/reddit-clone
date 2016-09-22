@@ -38,12 +38,12 @@ router.get('/login', (req, res, err) => {
 	res.render('login')
 })
 
-router.post('/login', ({body: {email, password}}, res, err) => {
+router.post('/login', ({session, body: {email, password}}, res, err) => {
 	User
 		.findOne({email})
 		.then((user) => {
-			console.log(user.password);
 			if (password === user.password) {
+				session.sessionUser = email
 				res.redirect('/')
 			} else{
 				res.render('login')
