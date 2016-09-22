@@ -14,5 +14,8 @@ nav(class="navbar navbar-default")
 					ul.nav.navbar-nav
 						li(class={active}): a(href='/') Home
 						li(class={active}): a(href='/new') New
-						li(class={active}): a(href="/login") Login
-						li(class={active}): a(href="/register") Register
+						if user
+							li(class={active}): a(href='#') Hello #{user}
+						else
+							li(class={active}): a(href="/login") Login
+							li(class={active}): a(href="/register") Register
