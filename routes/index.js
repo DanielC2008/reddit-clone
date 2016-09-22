@@ -4,6 +4,7 @@
 const {Router} = require('express')
 const router = Router()
 const News = require('../models/new.js')
+const User = require('../models/user.js')
 
 //////////////*********ROUTES************\\\\\\\\\\\\\\\\
 /////////*******this retrieves the home page*********\\\\\\\\\\
@@ -37,8 +38,21 @@ router.get('/login', (req, res, err) => {
 	res.render('login')
 })
 
+// router.post('/login', (req, res, err) => {
+// 	res.render('login')
+// })
+
 router.get('/register', (req, res, err) => {
 	res.render('register')
+})
+
+router.post('/register', ({body: {email, password}}, res, err) => {
+	User
+		.create({email, password})
+		.then(() => {
+			res.redirect('/login')
+		})
+		.catch(err)
 })
 
 
