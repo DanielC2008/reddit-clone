@@ -38,9 +38,19 @@ router.get('/login', (req, res, err) => {
 	res.render('login')
 })
 
-// router.post('/login', (req, res, err) => {
-// 	res.render('login')
-// })
+router.post('/login', ({body: {email, password}}, res, err) => {
+	User
+		.findOne({email})
+		.then((user) => {
+			console.log(user.password);
+			if (password === user.password) {
+				res.redirect('/')
+			} else{
+				res.render('login')
+			}
+		})
+		.catch(err)
+})
 
 router.get('/register', (req, res, err) => {
 	res.render('register')
