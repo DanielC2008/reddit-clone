@@ -3,15 +3,16 @@ extends layout.pug
 block content
 	div.container
 		div.row
-			div.col-md-1
-				div.row 
-					button.glyphicon.glyphicon-triangle-top(type="button" class="btn btn-default btn-md")
-				div.row score
-				div.row
-					button.glyphicon.glyphicon-triangle-bottom(type="button" class="btn btn-default btn-md")
-			img(class='col-md-1' src = 'http://devourtheworld.com/wp-content/uploads/2013/02/TurkishTaffy-1.jpg')
-			div.col-md-10
-				div.row
-					.col-md-12 this is title
-				div.row
-					a.col-md-12(href="http://devourtheworld.com") link
+			each article in news
+				div.col-md-1
+					div.row 
+						button.glyphicon.glyphicon-triangle-top(type="button" class="btn btn-default btn-md")
+					div.row score
+					div.row
+						button.glyphicon.glyphicon-triangle-bottom(type="button" class="btn btn-default btn-md")
+				img(class='col-md-1' src = '' + article.image)
+				div.col-md-10
+					div.row
+						.col-md-12 #{article.title}
+					div.row
+						a.col-md-12(href= "" + article.link) link
